@@ -1,7 +1,8 @@
 import React from "react";
 
 import logo from "../../assets/success.svg";
-import { useCompetition } from "../../hooks/CompetitionContext";
+import { startCompetition } from "../../actions/CompetitionAction";
+import { useAppContext } from "../../hooks/AppContext";
 import {
   Container,
   ContainerLogo,
@@ -14,11 +15,19 @@ import {
 export const Start: React.FC = () => {
   const [competition, setCompetition] = React.useState("");
 
-  const authCompetition = useCompetition();
+  const { dispatch } = useAppContext();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    authCompetition.start(competition);
+
+    dispatch(
+      startCompetition({
+        id: new Date().getTime().toString(),
+        name: competition,
+        isActive: true,
+        start: new Date(),
+      }),
+    );
   };
 
   return (
@@ -37,21 +46,10 @@ export const Start: React.FC = () => {
               type="text"
               placeholder="Informe o nome da competição"
               onChange={e => setCompetition(e.target.value)}
+              value={competition}
               required
             />
           </ContainerInput>
-
-          {/* <ContainerInput>
-            <label htmlFor="quantityTeams">
-              Quantidade de times participantes
-            </label>
-            <select onChange={e => setTeams(e.target.value)} required>
-              <option value=""></option>
-              <option value="2">2</option>
-              <option value="4">4</option>
-            </select>
-          </ContainerInput> */}
-
           <Button type="submit">Entrar</Button>
         </Form>
       </ContainerForm>

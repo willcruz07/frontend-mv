@@ -2,12 +2,17 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import logo from "../../assets/success.svg";
-import { useCompetition } from "../../hooks/CompetitionContext";
+import { useAppContext } from "../../hooks/AppContext";
+import { endCompetition } from "../../actions/CompetitionAction";
 
 import { ContainerHeader, ContainerLogo, ContainerNav } from "./styles";
 
 export const MainHeader: React.FC = () => {
-  const competition = useCompetition();
+  const { dispatch } = useAppContext();
+
+  const handleFinish = () => {
+    dispatch(endCompetition(new Date()));
+  };
 
   return (
     <ContainerHeader>
@@ -43,7 +48,7 @@ export const MainHeader: React.FC = () => {
           activeClassName="active"
           className="menu"
           to="/"
-          onClick={() => competition.finish()}
+          onClick={() => handleFinish()}
         >
           Sair
         </NavLink>

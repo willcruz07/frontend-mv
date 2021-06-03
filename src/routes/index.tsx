@@ -1,20 +1,20 @@
 import React from "react";
-import { useCompetition } from "../hooks/CompetitionContext";
 import { BrowserRouter, Redirect } from "react-router-dom";
 import { AppRoutes } from "./app.routes";
 import { StartRoutes } from "./start.routes";
+import { useAppContext } from "../hooks/AppContext";
 
 export const Routes: React.FC = () => {
-  const competition = useCompetition();
+  const appContext = useAppContext();
 
-  return competition.isActive ? (
+  return appContext.state.competition.isActive ? (
     <BrowserRouter>
-      <Redirect to="/team-registration" />
+      <Redirect to="/cadastrar-times" />
       <AppRoutes />
     </BrowserRouter>
   ) : (
     <BrowserRouter>
-      <Redirect to="/start" />
+      <Redirect to="/inicio" />
       <StartRoutes />
     </BrowserRouter>
   );

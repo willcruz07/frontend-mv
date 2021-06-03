@@ -1,22 +1,12 @@
-import { IPlayer, TPlayerAction } from "../models/Players";
-import { ITeam } from "../models/Teams";
+import { IPlayer } from "../models/Players";
+import { TAppAction } from "../models/App";
 
-export const createTeam = (team: ITeam): TPlayerAction => ({
-  type: "ADD_TEAM",
-  payload: team,
-});
-
-export const createPlayer = (player: IPlayer): TPlayerAction => ({
+export const createPlayer = (player: IPlayer): TAppAction => ({
   type: "ADD_PLAYER",
   payload: player,
 });
 
-export const deleteTeam = (id: string): TPlayerAction => ({
-  type: "DELETE_TEAM",
-  payload: id,
-});
-
-export const deletePlayer = (id: string): TPlayerAction => ({
+export const deletePlayer = (id: string): TAppAction => ({
   type: "DELETE_PLAYER",
   payload: id,
 });

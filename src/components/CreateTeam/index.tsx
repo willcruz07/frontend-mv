@@ -1,15 +1,13 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React from "react";
-import { createTeam } from "../../actions/PlayerAction";
-// import { createTeam } from "../../actions/TeamActions";
-import { usePlayerContext } from "../../hooks/PlayerContext";
-// import { useTeamContext } from "../../hooks/TeamContext";
+import { createTeam } from "../../actions/TeamActions";
+import { useAppContext } from "../../hooks/AppContext";
 
 import { ContainerForm, ContainerInput } from "./styles";
 
 export const CreateTeam: React.FC = () => {
   const [team, setTeam] = React.useState("");
-  const { dispatch } = usePlayerContext();
+  const { dispatch } = useAppContext();
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -23,12 +21,6 @@ export const CreateTeam: React.FC = () => {
       }),
     );
 
-    // dispatch(
-    //   createTeam({
-    //     id: new Date().getTime().toString(),
-    //     name: team,
-    //   }),
-    // );
     setTeam("");
   };
 

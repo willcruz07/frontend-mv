@@ -1,11 +1,11 @@
 import React from "react";
+import { useAppContext } from "../../hooks/AppContext";
 import { deletePlayer } from "../../actions/PlayerAction";
-import { usePlayerContext } from "../../hooks/PlayerContext";
 
 import { Container, Table } from "./styles";
 
 export const PlayerList: React.FC = () => {
-  const { state, dispatch } = usePlayerContext();
+  const { state, dispatch } = useAppContext();
 
   const handleDelete = (id: string) => dispatch(deletePlayer(id));
 

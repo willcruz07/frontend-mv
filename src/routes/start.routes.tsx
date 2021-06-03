@@ -5,7 +5,7 @@ import { Start } from "../pages/start";
 export const StartRoutes: React.FC = () => {
   return (
     <Switch>
-      <Route exact path="/start">
+      <Route exact path="/inicio">
         <Start />
       </Route>
 

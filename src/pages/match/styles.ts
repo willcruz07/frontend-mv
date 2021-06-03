@@ -38,7 +38,8 @@ export const Container = styled.div`
 
 export const TeamCard = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   width: 30%;
 
   padding: 24px;
@@ -48,6 +49,31 @@ export const TeamCard = styled.div`
   border-radius: 8px;
 
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+  h2 {
+    color: ${props => props.theme.colors.blackTertiary};
+    font-size: large;
+    font-weight: 400;
+  }
+
+  button {
+    height: 48px;
+    border-radius: 8px;
+    background-color: #0f6537;
+    color: ${props => props.theme.colors.whitePrimary};
+    font-weight: 600;
+    font-size: large;
+
+    &:disabled {
+      background-color: ${props => props.theme.colors.grayPrimary};
+      color: ${props => props.theme.colors.graySecondary};
+    }
+  }
+`;
+
+export const ContainerPlayers = styled.div`
+  margin-bottom: 16px;
+  border-bottom: solid 1px ${props => props.theme.colors.grayPrimary};
 `;
 
 export const Divider = styled.div`
@@ -84,7 +110,12 @@ export const Divider = styled.div`
   }
 `;
 
+export const ContainerTeams = styled.div``;
+
 export const ContainerInput = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 16px;
 `;
+
+export const ContainerListPlayers = styled.div``;

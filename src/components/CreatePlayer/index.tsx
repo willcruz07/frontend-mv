@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React from "react";
+import { useAppContext } from "../../hooks/AppContext";
 import { createPlayer } from "../../actions/PlayerAction";
-import { usePlayerContext } from "../../hooks/PlayerContext";
 
 import { ContainerForm, ContainerInput } from "./styles";
 
@@ -9,7 +9,7 @@ export const CreatePlayer: React.FC = () => {
   const [team, setTeam] = React.useState("");
   const [player, setPlayer] = React.useState("");
 
-  const { state, dispatch } = usePlayerContext();
+  const { state, dispatch } = useAppContext();
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();

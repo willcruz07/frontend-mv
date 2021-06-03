@@ -1,13 +1,10 @@
 import React from "react";
-import { deleteTeam } from "../../actions/PlayerAction";
-
-// import { deleteTeam } from "../../actions/TeamActions";
-import { usePlayerContext } from "../../hooks/PlayerContext";
-// import { useTeamContext } from "../../hooks/TeamContext";
+import { useAppContext } from "../../hooks/AppContext";
+import { deleteTeam } from "../../actions/TeamActions";
 import { Table, Container } from "./styles";
 
 export const ListTeam: React.FC = () => {
-  const { state, dispatch } = usePlayerContext();
+  const { state, dispatch } = useAppContext();
 
   const handleDelete = (id: string) => dispatch(deleteTeam(id));
 
